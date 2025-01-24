@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Technical Blog
+
+A modern, responsive blog platform built with Next.js 14 and TypeScript, featuring markdown support and theme switching.
+
+## Features
+
+- 🎨 Light/Dark theme support with system preference detection
+- 📝 Markdown content support with syntax highlighting
+- 🎯 Responsive design with Tailwind CSS
+- 🚀 Fast page loads with static generation
+- 📱 Mobile-friendly interface
+- 🔄 Smooth transitions and animations
+
+## Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Markdown Processing**:
+  - [gray-matter](https://github.com/jonschlinkert/gray-matter) for frontmatter parsing
+  - [remark](https://github.com/remarkjs/remark) for markdown rendering
+  - [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin) for prose styling
+
+## Project Structure
+
+```
+src/
+├── app/                   # Next.js app router pages
+│   ├── page.tsx          # Home page
+│   ├── posts/
+│   │   └── [id]/        # Dynamic post routes
+│   └── layout.tsx        # Root layout
+├── components/           # React components
+│   ├── ThemeProvider.tsx # Theme context provider
+│   └── ThemeToggle.tsx  # Theme switch button
+├── lib/                  # Utility functions
+│   └── markdown.ts      # Markdown processing utilities
+└── theme/               # Theme configuration
+    └── constants.ts     # Theme colors and styles
+posts/                   # Markdown blog posts
+```
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+\`\`\`bash
+git clone <repository-url>
+cd technical-blog
+\`\`\`
 
-```bash
+2. Install dependencies:
+\`\`\`bash
+npm install
+\`\`\`
+
+3. Run the development server:
+\`\`\`bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Creating Blog Posts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a new markdown file in the \`posts\` directory
+2. Add frontmatter with title and date:
+\`\`\`markdown
+---
+title: 'Your Post Title'
+date: '2024-03-19'
+---
 
-## Learn More
+Your content here...
+\`\`\`
 
-To learn more about Next.js, take a look at the following resources:
+## Theme Customization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The theme system is defined in \`src/theme/constants.ts\`. You can customize:
+- Color schemes for light/dark modes
+- Typography styles
+- Animations and transitions
+- Layout constants
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License - feel free to use this project for your own blog!
