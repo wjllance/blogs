@@ -1,5 +1,5 @@
-import { getPostData, getAllPostIds } from '@/lib/markdown';
-import Link from 'next/link';
+import { getPostData, getAllPostIds } from "@/lib/markdown";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   const posts = getAllPostIds();
@@ -8,12 +8,22 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Post({ params }: { params: { id: string } }) {
-  const postData = await getPostData(params.id);
+export default async function Post({
+  params,
+}: {
+  params: Promise<{
+    id: string;
+  }>;
+}) {
+  const { id } = await params;
+  const postData = await getPostData(id);
 
   return (
     <main className="min-h-screen p-8 max-w-4xl mx-auto">
-      <Link href="/" className="text-blue-600 hover:underline mb-8 inline-block">
+      <Link
+        href="/"
+        className="text-blue-600 hover:underline mb-8 inline-block"
+      >
         ← Back to home
       </Link>
       <article className="prose lg:prose-xl dark:prose-invert">
@@ -23,4 +33,4 @@ export default async function Post({ params }: { params: { id: string } }) {
       </article>
     </main>
   );
-} 
+}
